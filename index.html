@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Evlogjia Stefanidhi — Econometrics &amp; European economic policy</title>
+<meta name="description" content="Final-year Econometrics and Operations Research student at Maastricht University. Quantitative analysis for European economic policy.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#000; --bg2:#0a0a0a;
+  --fg:#fff; --dim:rgba(255,255,255,.55); --dimmer:rgba(255,255,255,.34);
+  --accent:#93b2cc;
+  --line:rgba(255,255,255,.08); --line2:rgba(255,255,255,.15);
+  --serif:'Instrument Serif',Georgia,serif;
+  --sans:'DM Sans',system-ui,sans-serif;
+  --mono:'JetBrains Mono',monospace;
+  --max:1080px;
+}
+:root[data-theme="light"]{
+  --bg:#fbfaf7; --bg2:#f5f2ec;
+  --fg:#141414; --dim:rgba(20,20,20,.64); --dimmer:rgba(20,20,20,.42);
+  --accent:#3f627f;
+  --line:rgba(20,20,20,.1); --line2:rgba(20,20,20,.18);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--fg);font-family:var(--sans);font-weight:300;
+  font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 34px}
+.it{font-style:italic;color:var(--accent)}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:60;background:color-mix(in srgb,var(--bg) 78%,transparent);
+  backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;height:66px;gap:26px}
+nav .nm{font-family:var(--serif);font-size:19px;margin-right:auto}
+nav a.nl{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--dimmer)}
+nav a.nl:hover{color:var(--fg)}
+.tbtn{background:none;border:none;color:var(--dimmer);cursor:pointer;font-size:13px;padding:4px}
+.tbtn:hover{color:var(--accent)}
+@media(max-width:820px){nav a.nl{display:none}}
+
+.hero{padding:150px 0 104px}
+.hgrid{display:grid;grid-template-columns:1fr 268px;gap:74px;align-items:start}
+@media(max-width:880px){.hgrid{grid-template-columns:1fr;gap:44px}.portrait{max-width:236px}}
+.kick,.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin-bottom:30px}
+h1{font-family:var(--serif);font-weight:400;font-size:clamp(2.5rem,5.4vw,4.1rem);line-height:1.0;
+  letter-spacing:-.028em;margin-bottom:30px;max-width:17ch}
+.lede{font-size:17px;color:var(--dim);max-width:52ch;margin-bottom:34px}
+.lede b{color:var(--fg);font-weight:400}
+.cta{display:flex;flex-wrap:wrap;gap:26px;font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;
+  text-transform:uppercase;margin-bottom:26px}
+.cta a{color:var(--fg);padding-bottom:5px;border-bottom:1px solid var(--line2)}
+.cta a:hover{border-bottom-color:var(--accent);color:var(--accent)}
+.chips{font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--dimmer);line-height:2}
+.portrait img{border-radius:2px}
+.portrait .where{font-size:13px;color:var(--dimmer);line-height:1.6;margin-top:16px}
+
+section{padding:104px 0;border-top:1px solid var(--line)}
+.shead{margin-bottom:52px}
+.shead .k{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin-bottom:22px}
+h2{font-family:var(--serif);font-weight:400;font-size:clamp(2rem,4vw,3.1rem);line-height:1.04;
+  letter-spacing:-.024em;max-width:24ch}
+.shead p{font-size:16px;color:var(--dim);margin-top:20px;max-width:52ch}
+
+.about{display:grid;grid-template-columns:1fr 1fr;gap:62px}
+@media(max-width:880px){.about{grid-template-columns:1fr;gap:34px}}
+.about p{color:var(--dim);margin-bottom:20px;max-width:46ch}
+.about p:last-child{margin-bottom:0}
+.about .pull{font-family:var(--serif);font-size:clamp(1.35rem,2.3vw,1.7rem);line-height:1.3;color:var(--fg);
+  letter-spacing:-.018em;margin:34px 0;padding-left:26px;border-left:1px solid var(--accent)}
+.likes{margin-top:38px;border-top:1px solid var(--line)}
+.like{display:grid;grid-template-columns:132px 1fr;gap:22px;padding:17px 0;border-bottom:1px solid var(--line)}
+.like .lt{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--dimmer);padding-top:4px}
+.like p{font-size:14.5px;color:var(--dim);margin:0}
+@media(max-width:560px){.like{grid-template-columns:1fr;gap:4px}}
+
+.feature h3{font-family:var(--serif);font-weight:400;font-size:clamp(1.45rem,2.4vw,1.85rem);line-height:1.22;
+  letter-spacing:-.016em;margin-bottom:20px;max-width:32ch}
+.metaline{display:flex;flex-wrap:wrap;gap:20px;font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--dimmer);margin-bottom:32px}
+.metaline .dot{display:none}
+.grade{color:var(--accent)}
+.feature p{color:var(--dim);margin-bottom:18px;max-width:60ch}
+.figwrap{margin:40px 0 10px;max-width:640px}
+.figwrap img{border:1px solid var(--line);border-radius:2px;background:#fff;padding:14px}
+.figwrap .cap{font-size:13px;color:var(--dimmer);line-height:1.65;margin-top:16px;max-width:58ch}
+.figwrap .cap b{color:var(--dim);font-weight:400}
+.filerow{display:flex;flex-wrap:wrap;gap:26px;margin-top:38px;padding-top:26px;border-top:1px solid var(--line);
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase}
+.filerow a{padding-bottom:5px;border-bottom:1px solid var(--line2)}
+.filerow a:hover{border-bottom-color:var(--accent);color:var(--accent)}
+.filerow a::after{content:none}
+.filerow .soon{color:var(--dimmer)}
+.filerow .soon::after{content:" · soon"}
+
+.depth{margin-top:44px;border-top:1px solid var(--line)}
+.depth details{border-bottom:1px solid var(--line)}
+.depth summary{cursor:pointer;list-style:none;padding:20px 0;display:flex;align-items:baseline;gap:24px;
+  font-family:var(--serif);font-size:19px;color:var(--fg)}
+.depth summary::-webkit-details-marker{display:none}
+.depth summary::after{content:"+";margin-left:auto;color:var(--dimmer);font-family:var(--sans);font-size:16px}
+.depth details[open] summary::after{content:"–"}
+.depth summary .lvl{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--accent);min-width:124px}
+.depth .body{padding:0 0 28px;color:var(--dim);max-width:60ch}
+.depth .body p{margin-bottom:16px}
+.depth .body p:last-child{margin-bottom:0}
+.depth .body code{font-family:var(--mono);font-size:13px;color:var(--fg);background:none;padding:0}
+@media(max-width:680px){.depth summary{flex-wrap:wrap;gap:8px}.depth summary .lvl{min-width:0;width:100%}}
+
+.stats{display:flex;flex-wrap:wrap;gap:64px;margin-top:52px;padding-top:38px;border-top:1px solid var(--line)}
+.stat{background:none;border:none;padding:0;border-radius:0}
+.stat b{display:block;font-family:var(--serif);font-weight:400;font-size:2.5rem;line-height:1;letter-spacing:-.02em;color:var(--fg)}
+.stat span{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--dimmer);
+  display:block;margin-top:12px;max-width:19ch;line-height:1.7}
+
+.cards2{display:grid;grid-template-columns:1fr 1fr;gap:0}
+@media(max-width:880px){.cards2{grid-template-columns:1fr}}
+.card{padding-right:48px;border-right:1px solid var(--line);background:none;border-radius:0;border-top:none;border-bottom:none;border-left:none;display:block}
+.card:last-child{padding:0 0 0 48px;border-right:none}
+@media(max-width:880px){
+  .card{padding:0 0 36px;border-right:none;border-bottom:1px solid var(--line);margin-bottom:36px}
+  .card:last-child{padding:0;border-bottom:none;margin-bottom:0}
+}
+.card:hover{transform:none;box-shadow:none}
+.card .kind{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--dimmer);margin-bottom:20px}
+.card h3{font-family:var(--serif);font-weight:400;font-size:1.42rem;line-height:1.24;letter-spacing:-.014em;margin-bottom:18px;color:var(--fg)}
+.card p{font-size:15px;color:var(--dim);margin-bottom:26px}
+.card .go{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  padding-bottom:5px;border-bottom:1px solid var(--line2);margin-top:0}
+.card .go::after{content:none}
+.card .go:hover{border-bottom-color:var(--accent);color:var(--accent)}
+
+.repo{background:none;border:none;border-radius:0;padding:0;display:block}
+.repo .rn{font-family:var(--mono);font-size:15px;color:var(--fg);margin-bottom:20px}
+.repo p{color:var(--dim);max-width:60ch;margin-bottom:24px;font-size:16px}
+.repo .rmeta{display:flex;flex-wrap:wrap;gap:26px;font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--dimmer)}
+.repo .lang::before{content:none}
+.repo .doi{background:none;border:none;padding:0;font-family:var(--mono)}
+
+.bg-grid{display:grid;grid-template-columns:164px 1fr}
+@media(max-width:740px){.bg-grid{grid-template-columns:1fr}}
+.bg-k{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);
+  padding:30px 0;border-top:1px solid var(--line)}
+.bg-v{padding:30px 0;border-top:1px solid var(--line)}
+@media(max-width:740px){.bg-k{padding:26px 0 4px}.bg-v{padding-top:0;border-top:none}}
+.bg-v .t{font-size:17px;color:var(--fg);font-weight:400}
+.bg-v .s{font-size:14.5px;color:var(--dim);margin-top:6px;max-width:60ch}
+.bg-v .item2{margin-bottom:22px}
+.bg-v .item2:last-child{margin-bottom:0}
+
+.contact{max-width:none;text-align:left}
+.contact p{font-size:17px;color:var(--dim);margin-bottom:34px;max-width:46ch}
+.contact .cta{justify-content:flex-start}
+
+footer{border-top:1px solid var(--line);padding:38px 0 74px;font-family:var(--mono);font-size:10.5px;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--dimmer)}
+footer .wrap{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}
+
+.editnote{background:var(--bg2);border:1px solid var(--line);border-left:1px solid var(--accent);color:var(--dim);
+  font-size:13.5px;line-height:1.7;padding:22px 26px;border-radius:0;margin:0 0 60px;max-width:72ch}
+.editnote b{color:var(--fg);font-weight:400}
+.editnote code{font-family:var(--mono);font-size:12.5px;color:var(--accent)}
+
+/* ---- craft layer ---- */
+body::before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:radial-gradient(ellipse 60% 42% at 22% -6%, color-mix(in srgb,var(--accent) 12%,transparent), transparent 70%);
+}
+nav,.hero,section,footer,.wrap{position:relative;z-index:1}
+
+/* mounted print treatment: the photo has a light backdrop, so give it a mat */
+.portrait .mat{background:#f2efe9;padding:11px;border-radius:2px;border:1px solid var(--line)}
+:root[data-theme="light"] .portrait .mat{background:#fff;border-color:var(--line2)}
+.portrait .mat img{border-radius:1px}
+
+/* figure gets the same mat so the two light surfaces feel deliberate */
+.figwrap img{padding:18px}
+
+/* numbered section eyebrows */
+.shead .k{display:flex;align-items:baseline;gap:14px}
+.shead .k .no{color:var(--dimmer);font-variant-numeric:tabular-nums}
+.shead .k .no::after{content:"";display:inline-block;width:26px;height:1px;
+  background:var(--line2);vertical-align:middle;margin-left:14px;margin-bottom:3px}
+
+/* animated underlines */
+.cta a,.filerow a,.card .go{position:relative;border-bottom-color:transparent!important}
+.cta a::before,.filerow a::before,.card .go::before{
+  content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--line2);
+}
+.cta a::after,.filerow a::after,.card .go::after{
+  content:"";position:absolute;left:0;bottom:0;height:1px;width:0;background:var(--accent);
+  transition:width .34s cubic-bezier(.2,.7,.2,1);
+}
+.cta a:hover::after,.filerow a:hover::after,.card .go:hover::after{width:100%}
+.filerow .soon::after,.filerow .soon::before{display:none}
+.filerow .soon{border:none}
+
+/* scroll reveals */
+.rv{opacity:0;transform:translateY(16px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+
+/* closing wordmark */
+.sig{padding:0 0 12px;overflow:hidden}
+.sig span{
+  display:block;font-family:var(--serif);font-size:clamp(3rem,12vw,9rem);line-height:.9;
+  letter-spacing:-.04em;color:var(--fg);opacity:.055;white-space:nowrap;user-select:none;
+}
+:root[data-theme="light"] .sig span{opacity:.07}
+
+/* small typographic polish */
+h1,h2,.pull,.stat b{font-feature-settings:"liga" 1,"kern" 1}
+.metaline,.rmeta,.bg-k,.like .lt,.stat span{font-variant-numeric:tabular-nums}
+.lede,.about p,.feature p,.card p,.depth .body p{text-wrap:pretty}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <span class="nm">Evlogjia Stefanidhi</span>
+    <a class="nl" href="#about">About</a>
+    <a class="nl" href="#research">Research</a>
+    <a class="nl" href="#writing">Writing</a>
+    <a class="nl" href="#code">Code</a>
+    <a class="nl" href="#background">Background</a>
+    <a class="nl" href="#contact">Contact</a>
+    <button class="tbtn" id="tt" aria-label="Toggle theme">◐</button>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="wrap hgrid">
+    <div>
+      <div class="kick">Maastricht University</div>
+      <h1>Why the same rule lands <span class="it">differently</span> in different places</h1>
+      <p class="lede">
+        I am in the final year of a BSc in Econometrics and Operations Research at Maastricht. The technical answer is that I estimate <b>structural VARs for thirteen euro-area economies</b>. The honest answer is that I grew up between languages and countries, so the idea that one policy can be applied everywhere and mean something different in each place was never abstract to me. I am looking for a research internship in European economic policy from early 2027.
+      </p>
+      <div class="cta">
+        <a href="cv.pdf">Curriculum vitae</a>
+        <a href="mailto:evlogjia@gmail.com">Email</a>
+        <a href="https://www.linkedin.com/in/evlogjia-stefanidhi-8aab45270">LinkedIn</a>
+      </div>
+      <div class="chips">Python · R · Stata · Julia<br>English C1 · French B2 · Greek national</div>
+    </div>
+    <div class="portrait">
+      <div class="mat"><img src="photo.png" alt="Evlogjia Stefanidhi"></div>
+      <div class="where">Maastricht, Netherlands. Albanian, Greek passport, a semester in Rome, and six languages that mostly happened by accident.</div>
+    </div>
+  </div>
+</div>
+
+<section id="about">
+  <div class="wrap">
+    <div class="shead rv">
+      <div class="k"><span class="no">01</span>About</div>
+      <h2>How I ended up <span class="it">here</span></h2>
+    </div>
+    <div class="about rv">
+      <div>
+        <p>Albanian is my first language, my passport is Greek, I study in Dutch-speaking Limburg in English, and I spent a semester in Rome. None of that was a plan. It does mean that by the time I met the phrase "cross-country heterogeneity" in a lecture, it already described something I had lived rather than something I had to imagine.</p>
+        <p class="pull">One central bank sets one interest rate for twenty countries. I find it genuinely strange that this works at all, and I want to know where it works less well.</p>
+        <p>That is what my thesis turned out to be about. The euro area sets a single policy rate for economies where cash settles anywhere between a fifth and two thirds of everyday payments, and since the machinery that carries a rate change runs through banks, and cash does not, I wanted to see whether the difference shows up in the data. It does, faintly, at the horizons where theory says it should.</p>
+        <p>The part of the work I like least is the estimation. The part I like most is the hour afterwards, when you have to explain what you found to someone who has no reason to care about your standard errors and every reason to care about the answer.</p>
+      </div>
+      <div>
+        <p>Before Maastricht I did not expect to end up in economics at all. I came to it through wanting to understand institutions rather than markets, which is probably why the policy side keeps pulling me harder than the finance side.</p>
+        <p>Outside the degree I chaired my study association's anniversary committee, which meant a year of budgets, venues and several hundred emails, and taught me that most of what looks like a good event on the night was decided months earlier in a spreadsheet. I am currently interning at a small venture firm in Amsterdam, building the model that decides which applicants get taken seriously.</p>
+        <div class="likes">
+          <div class="like"><div class="lt">Reading now</div><p>Bruegel's newsletter, the ECB blog, and whatever Brussels Playbook decides is urgent that morning</p></div>
+          <div class="like"><div class="lt">Away from work</div><p>Art, history, and the kind of long social-science argument that ruins a dinner</p></div>
+          <div class="like"><div class="lt">Languages</div><p>Albanian, English, French, Turkish, and enough Italian and Greek to be polite</p></div>
+          <div class="like"><div class="lt">Looking for</div><p>A research internship in European economic policy, from early 2027</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="research">
+  <div class="wrap">
+    <div class="shead rv">
+      <div class="k"><span class="no">02</span>Research</div>
+      <h2>Does monetary policy work less well where people pay in <span class="it">cash</span>?</h2>
+    </div>
+
+    <div class="feature rv">
+      <h3>Monetary Policy Transmission in the Euro Area: Low-Cash versus High-Cash Economies</h3>
+      <div class="metaline">
+        <span>BSc thesis</span><span class="dot">·</span>
+        <span>June 2026</span><span class="dot">·</span>
+        <span>Supervisor: Enrico Wegner</span><span class="dot">·</span>
+        <span class="grade">Graded 9.0 / 10</span>
+      </div>
+      <p>
+        The ECB sets one policy rate for an area where cash settles 22 per cent of point-of-sale transactions in the Netherlands and 62 per cent in Austria. Because the standard channels of monetary transmission run through the banking system, and cash payments bypass it, the question is whether policy transmits more weakly where cash is more prevalent.
+      </p>
+      <p>
+        I estimate country-level structural VARs for thirteen euro-area economies using high-frequency policy surprises, then pool the impulse responses in a cross-country regression that interacts each horizon with the country's cash share. Higher cash usage is associated with a weaker GDP response, concentrated at the horizons where output troughs and robust to dropping any single country. With thirteen countries the evidence is best read as suggestive rather than settled, and the price-side results are weaker still.
+      </p>
+      <p>
+        The finding bears on a live policy question. By drawing cash transactions into the banking system, a digital euro could strengthen transmission, and the size of that gain depends on design choices currently under debate.
+      </p>
+      <div class="figwrap rv">
+        <img src="fig-cash-interaction.png" alt="Horizon-varying effect of cash usage on the GDP response to a monetary policy shock, with 90 per cent confidence bands.">
+        <p class="cap"><b>The main result.</b> The effect of a one-point higher cash share on the output response to an ECB surprise, by quarter, with 90 per cent bands. It rises into the trough and fades after quarter six, which is the shape the mechanism predicts.</p>
+      </div>
+
+      <div class="depth rv">
+        <details open>
+          <summary><span class="lvl">In plain terms</span>Why would cash matter at all?</summary>
+          <div class="body">
+            <p>When the ECB changes its interest rate, the change travels to the economy mostly through banks. Loans get dearer, deposits pay differently, collateral is worth more or less. All of that needs your money to be sitting in, and moving through, a bank.</p>
+            <p>Cash does not move through a bank. If you are paid in cash and you spend it in cash, that money never touches the machinery the central bank is pulling on. So in a country where most payments are cash, you would expect the same interest rate decision to have a smaller effect. That is the whole idea, and the point of the thesis is to check whether it shows up in the data.</p>
+          </div>
+        </details>
+        <details>
+          <summary><span class="lvl">If you did econ</span>The mechanism and the test</summary>
+          <div class="body">
+            <p>Of the five channels in the standard transmission taxonomy, three are bank-intermediated: bank lending, balance sheet, and deposits. Each depends on the deposit base and on activity being routed through bank balance sheets, both of which a high cash share erodes. The interest-rate and asset-price channels are affected only indirectly. So the prediction is not that transmission stops, but that the bank-funding-dependent channels weaken first and most, and that the effect should show up at the horizons where those channels operate rather than uniformly.</p>
+            <p>The test needs cross-country variation in cash use plus a shock that is common to everyone, which is what the euro area provides: one policy rate, and cash shares running from 22 to 62 per cent of point-of-sale transactions.</p>
+          </div>
+        </details>
+        <details>
+          <summary><span class="lvl">Technical</span>Specification and inference</summary>
+          <div class="body">
+            <p>Monetary surprises come from high-frequency movements in market rates around ECB announcements, aggregated to quarterly frequency. A structural VAR is estimated per country in log levels with the ECB non-energy commodity index and three lags; thirteen of nineteen members yield stable estimates on a sufficient sample.</p>
+            <p>The impulse responses are then pooled: <code>y(c,h) = Σ D(h)·θ(h) + Σ (D(h)×cash(c))·γ(h) + ε</code>, where the unit of observation is a country–horizon pair and the coefficients of interest are the interactions γ(h). Standard errors are clustered by country, with 90 per cent bands from a <em>t</em>-distribution on <em>G</em>−1 degrees of freedom.</p>
+            <p>Constraining γ to a single coefficient across all horizons gives 0.00042 (<em>p</em> = 0.56); averaging over twenty-one horizons dilutes a concentrated effect. Allowing it to vary by horizon puts it at quarters three to five, the pre-specified trough of the average output response, with a joint test over that window giving 0.00115 (<em>t</em> = 1.50, <em>p</em> = 0.159). Adding manufacturing intensity, a theory-motivated control for interest-sensitive durable-goods production, returns <em>p</em>-values of 0.018, 0.009 and 0.023 at the same horizons. The result is robust to leave-one-country-out.</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="filerow">
+        <a href="thesis.pdf">Read the thesis</a>
+        <span class="soon">SSRN working paper</span>
+        <span class="soon">Data and code</span>
+      </div>
+    </div>
+
+    <div class="stats rv">
+      <div class="stat"><b>13</b><span>euro-area economies with stable estimates</span></div>
+      <div class="stat"><b>12 of 13</b><span>contract after the shock. One does not.</span></div>
+      <div class="stat"><b>q3–q5</b><span>where the cash effect concentrates</span></div>
+      <div class="stat"><b>9.0/10</b><span>thesis grade</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="writing">
+  <div class="wrap">
+    <div class="shead rv">
+      <div class="k"><span class="no">03</span>Policy writing</div>
+      <h2>Turning results into something a decision-maker can <span class="it">use</span></h2>
+      <p>Two short briefs drawn from the thesis: one on what the finding means for the digital euro, one on the country that behaved the wrong way.</p>
+    </div>
+
+    <div class="cards2 rv">
+      <div class="card">
+        <div class="kind">Policy brief</div>
+        <h3>The digital euro has a transmission dividend, and nobody is pricing it</h3>
+        <p>
+          The debate has settled on privacy, financial stability and holding limits. The transmission question is absent, and it runs opposite to the disintermediation worry: an instrument that displaces part of cash circulation brings transactions currently outside the mechanism inside it. That gain is a design variable, not a fixed property.
+        </p>
+        <a class="go" href="brief-digital-euro.pdf">Read the brief</a>
+      </div>
+
+      <div class="card">
+        <div class="kind">Policy brief</div>
+        <h3>The country that moved the wrong way</h3>
+        <p>
+          Of thirteen economies, twelve contract after a contractionary surprise. Greece does not. The plausible explanations are not statistical accidents: they point at an impaired bank-lending channel, a condition under which standard transmission estimates mislead. Sign-check failures are findings, not noise.
+        </p>
+        <a class="go" href="brief-greece.pdf">Read the brief</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="code">
+  <div class="wrap">
+    <div class="shead rv">
+      <div class="k"><span class="no">04</span>Code</div>
+      <h2>Replication <span class="it">material</span></h2>
+      <p>Everything in the thesis can be reproduced from public data with two commands.</p>
+    </div>
+    <div class="repo rv">
+      <div class="rn">cash-and-transmission</div>
+      <p>Structural VARs for thirteen euro-area economies, the pooled cross-country interaction with each country's cash share, and the robustness set. Reads policy surprises from the Euro Area Monetary Policy Database and pulls the macro series at runtime, so nothing restricted is redistributed.</p>
+      <div class="rmeta">
+        <span>Julia</span>
+        <span>MIT licence</span>
+        <span>DOI pending release</span>
+      </div>
+      <div class="filerow">
+        <span class="soon">View on GitHub</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="background">
+  <div class="wrap">
+    <div class="shead rv">
+      <div class="k"><span class="no">05</span>Background</div>
+      <h2>Where the training comes <span class="it">from</span></h2>
+    </div>
+
+    <div class="bg-grid rv">
+      <div class="bg-k">Education</div>
+      <div class="bg-v">
+        <div class="item2">
+          <div class="t">BSc Econometrics and Operations Research</div>
+          <div class="s">Maastricht University, School of Business and Economics · final year</div>
+        </div>
+        <div class="item2">
+          <div class="t">Exchange semester</div>
+          <div class="s">Università degli Studi di Roma Tor Vergata · completed February 2026</div>
+        </div>
+      </div>
+
+      <div class="bg-k">Experience</div>
+      <div class="bg-v">
+        <div class="item2">
+          <div class="t">Venture Analyst Intern, Strategy &amp; Analytics</div>
+          <div class="s">Goatstarter Ventures, Amsterdam · 2026. Built a scoring model in Python to assess accelerator applicants, analysed past cohorts for the characteristics that predicted success, and modelled programme unit economics. The useful part was turning it into a rubric a non-technical team could apply.</div>
+        </div>
+        <div class="item2">
+          <div class="t">Chair, Lustrum Committee</div>
+          <div class="s">Vectum, study association for Econometrics and Operations Research · 2024–2025. Led a team of six delivering a gala evening and an alumni networking event, owning budget, logistics and stakeholder communication.</div>
+        </div>
+      </div>
+
+      <div class="bg-k">Methods</div>
+      <div class="bg-v">
+        <div class="item2">
+          <div class="t">Python, R, Stata, Julia, Java, LaTeX</div>
+          <div class="s">Structural VARs and high-frequency identification, time series, regression and classification, optimisation, mathematical statistics</div>
+        </div>
+      </div>
+
+      <div class="bg-k">Languages</div>
+      <div class="bg-v">
+        <div class="item2">
+          <div class="t">Albanian (native) · English C1 · French B2 · Turkish B1</div>
+          <div class="s">Italian and Greek at basic level. Greek national and EU citizen, so no administrative barriers to working anywhere in the Union.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="contact rv">
+      <div class="k" style="font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--brand2);margin-bottom:9px">Contact</div>
+      <h2>Looking for a research internship from early <span class="it">2027</span></h2>
+      <p>Preferably in European economic policy, in Brussels or the Netherlands. If you have something that involves data and a policy question, I would like to hear about it.</p>
+      <div class="cta">
+        <a href="mailto:evlogjia@gmail.com">evlogjia@gmail.com</a>
+        <a href="cv.pdf">Curriculum vitae</a>
+        <a href="https://www.linkedin.com/in/evlogjia-stefanidhi-8aab45270">LinkedIn</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap sig"><span>Evlogjia Stefanidhi</span></div>
+
+<footer>
+  <div class="wrap">
+    <div>Maastricht, Netherlands</div>
+    <div>© 2026 Evlogjia Stefanidhi</div>
+  </div>
+</footer>
+
+<div class="wrap">
+  <div class="editnote">
+    <b>Delete this box before publishing.</b> Two links are placeholders and currently do nothing: the SSRN working paper and the data-and-code repo. Either point them somewhere real or remove them, since a dead link is worse than no link. Consider trimming the Statement of Originality and the AI declaration out of <code>thesis.pdf</code> before putting it online. And rewrite the opening paragraph in your own voice: it is the first thing anyone reads and right now it sounds like a summary of you rather than you.
+  </div>
+</div>
+
+<script>
+const io=new IntersectionObserver(es=>es.forEach(e=>{
+  if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}
+}),{threshold:.12,rootMargin:'0px 0px -8% 0px'});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+const b=document.getElementById('tt');
+b.addEventListener('click',()=>{
+  const cur=document.documentElement.getAttribute('data-theme');
+  const dark = cur ? cur==='dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+  document.documentElement.setAttribute('data-theme', dark?'light':'dark');
+});
+</script>
+</body>
+</html>
