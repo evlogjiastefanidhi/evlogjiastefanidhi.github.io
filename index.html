@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Evlogjia Stefanidhi — Econometrics &amp; European economic policy</title>
-<meta name="description" content="Final-year Econometrics and Operations Research student at Maastricht University. Quantitative analysis for European economic policy.">
+<meta name="description" content="Final-year BSc Econometrics and Operations Research at Maastricht University. CV, research and writing.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -218,287 +218,291 @@ nav,.hero,section,footer,.wrap{position:relative;z-index:1}
 h1,h2,.pull,.stat b{font-feature-settings:"liga" 1,"kern" 1}
 .metaline,.rmeta,.bg-k,.like .lt,.stat span{font-variant-numeric:tabular-nums}
 .lede,.about p,.feature p,.card p,.depth .body p{text-wrap:pretty}
+
+/* ---- CV entries ---- */
+.entry{padding:26px 0;border-top:1px solid var(--line)}
+.entry:first-of-type{border-top:none;padding-top:6px}
+.entry .top{display:flex;gap:16px;align-items:baseline;flex-wrap:wrap}
+.entry .role{font-family:var(--serif);font-size:clamp(1.15rem,1.9vw,1.4rem);line-height:1.25}
+.entry .when{font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--dimmer);
+  margin-left:auto;white-space:nowrap;text-transform:uppercase}
+.entry .org{color:var(--accent);font-size:14.5px;margin-top:3px}
+.entry ul{list-style:none;margin-top:14px}
+.entry li{color:var(--dim);padding-left:18px;position:relative;margin-bottom:7px;max-width:66ch}
+.entry li::before{content:"";position:absolute;left:0;top:11px;width:6px;height:1px;background:var(--line2)}
+.entry li b{color:var(--fg);font-weight:400}
+.skillgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:34px;margin-top:8px}
+.skillgrid h4{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--dimmer);font-weight:400;margin-bottom:10px}
+.skillgrid p{color:var(--dim);font-size:15px;max-width:38ch}
+.langs{display:grid;gap:7px;margin-top:8px}
+.langs div{display:flex;justify-content:space-between;gap:14px;color:var(--dim);font-size:15px;
+  border-bottom:1px solid var(--line);padding-bottom:6px;max-width:320px}
+.langs span{font-family:var(--mono);font-size:11px;letter-spacing:.05em;color:var(--dimmer);
+  text-transform:uppercase;white-space:nowrap}
+@media(max-width:760px){
+  .entry .when{margin-left:0;width:100%}
+}
 </style>
 </head>
 <body>
+<nav><div class="wrap">
+  <a class="nm" href="#top">Evlogjia Stefanidhi</a>
+  <a href="#about">About</a>
+  <a href="#experience">Experience</a>
+  <a href="#research">Research</a>
+  <a href="#writing">Writing</a>
+  <a href="#contact">Contact</a>
+  <button class="tbtn" id="tbtn" aria-label="Switch theme">◐</button>
+</div></nav>
 
-<nav>
-  <div class="wrap">
-    <span class="nm">Evlogjia Stefanidhi</span>
-    <a class="nl" href="#about">About</a>
-    <a class="nl" href="#research">Research</a>
-    <a class="nl" href="#writing">Writing</a>
-    <a class="nl" href="#code">Code</a>
-    <a class="nl" href="#background">Background</a>
-    <a class="nl" href="#contact">Contact</a>
-    <button class="tbtn" id="tt" aria-label="Toggle theme">◐</button>
-  </div>
-</nav>
-
-<div class="hero">
-  <div class="wrap hgrid">
+<header class="hero" id="top"><div class="wrap">
+  <div class="hgrid">
     <div>
       <div class="kick">Maastricht University</div>
-      <h1>Why the same rule lands <span class="it">differently</span> in different places</h1>
-      <p class="lede">
-        I am in the final year of a BSc in Econometrics and Operations Research at Maastricht. The technical answer is that I estimate <b>structural VARs for thirteen euro-area economies</b>. The honest answer is that I grew up between languages and countries, so the idea that one policy can be applied everywhere and mean something different in each place was never abstract to me. I am looking for a research internship in European economic policy from early 2027.
-      </p>
-      <div class="cta">
+      <h1>Evlogjia <span class="it">Stefanidhi</span></h1>
+      <p class="lede">Final-year BSc in Econometrics and Operations Research. I work on the
+      quantitative side of European economic policy questions, and on turning the results
+      into something a decision-maker can act on. Looking for a research internship from
+      early 2027.</p>
+      <div class="filerow">
         <a href="cv.pdf">Curriculum vitae</a>
-        <a href="mailto:evlogjia@gmail.com">Email</a>
-        <a href="https://www.linkedin.com/in/evlogjia-stefanidhi-8aab45270">LinkedIn</a>
-      </div>
-      <div class="chips">Python · R · Stata · Julia<br>English C1 · French B2 · Greek national</div>
-    </div>
-    <div class="portrait">
-      <div class="mat"><img src="photo.png" alt="Evlogjia Stefanidhi"></div>
-      <div class="where">Maastricht, Netherlands. Albanian, Greek passport, a semester in Rome, and six languages that mostly happened by accident.</div>
-    </div>
-  </div>
-</div>
-
-<section id="about">
-  <div class="wrap">
-    <div class="shead rv">
-      <div class="k"><span class="no">01</span>About</div>
-      <h2>How I ended up <span class="it">here</span></h2>
-    </div>
-    <div class="about rv">
-      <div>
-        <p>Albanian is my first language, my passport is Greek, I study in Dutch-speaking Limburg in English, and I spent a semester in Rome. None of that was a plan. It does mean that by the time I met the phrase "cross-country heterogeneity" in a lecture, it already described something I had lived rather than something I had to imagine.</p>
-        <p class="pull">One central bank sets one interest rate for twenty countries. I find it genuinely strange that this works at all, and I want to know where it works less well.</p>
-        <p>That is what my thesis turned out to be about. The euro area sets a single policy rate for economies where cash settles anywhere between a fifth and two thirds of everyday payments, and since the machinery that carries a rate change runs through banks, and cash does not, I wanted to see whether the difference shows up in the data. It does, faintly, at the horizons where theory says it should.</p>
-        <p>The part of the work I like least is the estimation. The part I like most is the hour afterwards, when you have to explain what you found to someone who has no reason to care about your standard errors and every reason to care about the answer.</p>
-      </div>
-      <div>
-        <p>Before Maastricht I did not expect to end up in economics at all. I came to it through wanting to understand institutions rather than markets, which is probably why the policy side keeps pulling me harder than the finance side.</p>
-        <p>Outside the degree I chaired my study association's anniversary committee, which meant a year of budgets, venues and several hundred emails, and taught me that most of what looks like a good event on the night was decided months earlier in a spreadsheet. I am currently interning at a small venture firm in Amsterdam, building the model that decides which applicants get taken seriously.</p>
-        <div class="likes">
-          <div class="like"><div class="lt">Reading now</div><p>Bruegel's newsletter, the ECB blog, and whatever Brussels Playbook decides is urgent that morning</p></div>
-          <div class="like"><div class="lt">Away from work</div><p>Art, history, and the kind of long social-science argument that ruins a dinner</p></div>
-          <div class="like"><div class="lt">Languages</div><p>Albanian, English, French, Turkish, and enough Italian and Greek to be polite</p></div>
-          <div class="like"><div class="lt">Looking for</div><p>A research internship in European economic policy, from early 2027</p></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="research">
-  <div class="wrap">
-    <div class="shead rv">
-      <div class="k"><span class="no">02</span>Research</div>
-      <h2>Does monetary policy work less well where people pay in <span class="it">cash</span>?</h2>
-    </div>
-
-    <div class="feature rv">
-      <h3>Monetary Policy Transmission in the Euro Area: Low-Cash versus High-Cash Economies</h3>
-      <div class="metaline">
-        <span>BSc thesis</span><span class="dot">·</span>
-        <span>June 2026</span><span class="dot">·</span>
-        <span>Supervisor: Enrico Wegner</span><span class="dot">·</span>
-        <span class="grade">Graded 9.0 / 10</span>
-      </div>
-      <p>
-        The ECB sets one policy rate for an area where cash settles 22 per cent of point-of-sale transactions in the Netherlands and 62 per cent in Austria. Because the standard channels of monetary transmission run through the banking system, and cash payments bypass it, the question is whether policy transmits more weakly where cash is more prevalent.
-      </p>
-      <p>
-        I estimate country-level structural VARs for thirteen euro-area economies using high-frequency policy surprises, then pool the impulse responses in a cross-country regression that interacts each horizon with the country's cash share. Higher cash usage is associated with a weaker GDP response, concentrated at the horizons where output troughs and robust to dropping any single country. With thirteen countries the evidence is best read as suggestive rather than settled, and the price-side results are weaker still.
-      </p>
-      <p>
-        The finding bears on a live policy question. By drawing cash transactions into the banking system, a digital euro could strengthen transmission, and the size of that gain depends on design choices currently under debate.
-      </p>
-      <div class="figwrap rv">
-        <img src="fig-cash-interaction.png" alt="Horizon-varying effect of cash usage on the GDP response to a monetary policy shock, with 90 per cent confidence bands.">
-        <p class="cap"><b>The main result.</b> The effect of a one-point higher cash share on the output response to an ECB surprise, by quarter, with 90 per cent bands. It rises into the trough and fades after quarter six, which is the shape the mechanism predicts.</p>
-      </div>
-
-      <div class="depth rv">
-        <details open>
-          <summary><span class="lvl">In plain terms</span>Why would cash matter at all?</summary>
-          <div class="body">
-            <p>When the ECB changes its interest rate, the change travels to the economy mostly through banks. Loans get dearer, deposits pay differently, collateral is worth more or less. All of that needs your money to be sitting in, and moving through, a bank.</p>
-            <p>Cash does not move through a bank. If you are paid in cash and you spend it in cash, that money never touches the machinery the central bank is pulling on. So in a country where most payments are cash, you would expect the same interest rate decision to have a smaller effect. That is the whole idea, and the point of the thesis is to check whether it shows up in the data.</p>
-          </div>
-        </details>
-        <details>
-          <summary><span class="lvl">If you did econ</span>The mechanism and the test</summary>
-          <div class="body">
-            <p>Of the five channels in the standard transmission taxonomy, three are bank-intermediated: bank lending, balance sheet, and deposits. Each depends on the deposit base and on activity being routed through bank balance sheets, both of which a high cash share erodes. The interest-rate and asset-price channels are affected only indirectly. So the prediction is not that transmission stops, but that the bank-funding-dependent channels weaken first and most, and that the effect should show up at the horizons where those channels operate rather than uniformly.</p>
-            <p>The test needs cross-country variation in cash use plus a shock that is common to everyone, which is what the euro area provides: one policy rate, and cash shares running from 22 to 62 per cent of point-of-sale transactions.</p>
-          </div>
-        </details>
-        <details>
-          <summary><span class="lvl">Technical</span>Specification and inference</summary>
-          <div class="body">
-            <p>Monetary surprises come from high-frequency movements in market rates around ECB announcements, aggregated to quarterly frequency. A structural VAR is estimated per country in log levels with the ECB non-energy commodity index and three lags; thirteen of nineteen members yield stable estimates on a sufficient sample.</p>
-            <p>The impulse responses are then pooled: <code>y(c,h) = Σ D(h)·θ(h) + Σ (D(h)×cash(c))·γ(h) + ε</code>, where the unit of observation is a country–horizon pair and the coefficients of interest are the interactions γ(h). Standard errors are clustered by country, with 90 per cent bands from a <em>t</em>-distribution on <em>G</em>−1 degrees of freedom.</p>
-            <p>Constraining γ to a single coefficient across all horizons gives 0.00042 (<em>p</em> = 0.56); averaging over twenty-one horizons dilutes a concentrated effect. Allowing it to vary by horizon puts it at quarters three to five, the pre-specified trough of the average output response, with a joint test over that window giving 0.00115 (<em>t</em> = 1.50, <em>p</em> = 0.159). Adding manufacturing intensity, a theory-motivated control for interest-sensitive durable-goods production, returns <em>p</em>-values of 0.018, 0.009 and 0.023 at the same horizons. The result is robust to leave-one-country-out.</p>
-          </div>
-        </details>
-      </div>
-
-      <div class="filerow">
-        <a href="thesis.pdf">Read the thesis</a>
-        <span class="soon">SSRN working paper</span>
-        <span class="soon">Data and code</span>
-      </div>
-    </div>
-
-    <div class="stats rv">
-      <div class="stat"><b>13</b><span>euro-area economies with stable estimates</span></div>
-      <div class="stat"><b>12 of 13</b><span>contract after the shock. One does not.</span></div>
-      <div class="stat"><b>q3–q5</b><span>where the cash effect concentrates</span></div>
-      <div class="stat"><b>9.0/10</b><span>thesis grade</span></div>
-    </div>
-  </div>
-</section>
-
-<section id="writing">
-  <div class="wrap">
-    <div class="shead rv">
-      <div class="k"><span class="no">03</span>Policy writing</div>
-      <h2>Turning results into something a decision-maker can <span class="it">use</span></h2>
-      <p>Two short briefs drawn from the thesis: one on what the finding means for the digital euro, one on the country that behaved the wrong way.</p>
-    </div>
-
-    <div class="cards2 rv">
-      <div class="card">
-        <div class="kind">Policy brief</div>
-        <h3>The digital euro has a transmission dividend, and nobody is pricing it</h3>
-        <p>
-          The debate has settled on privacy, financial stability and holding limits. The transmission question is absent, and it runs opposite to the disintermediation worry: an instrument that displaces part of cash circulation brings transactions currently outside the mechanism inside it. That gain is a design variable, not a fixed property.
-        </p>
-        <a class="go" href="brief-digital-euro.pdf">Read the brief</a>
-      </div>
-
-      <div class="card">
-        <div class="kind">Policy brief</div>
-        <h3>The country that moved the wrong way</h3>
-        <p>
-          Of thirteen economies, twelve contract after a contractionary surprise. Greece does not. The plausible explanations are not statistical accidents: they point at an impaired bank-lending channel, a condition under which standard transmission estimates mislead. Sign-check failures are findings, not noise.
-        </p>
-        <a class="go" href="brief-greece.pdf">Read the brief</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="code">
-  <div class="wrap">
-    <div class="shead rv">
-      <div class="k"><span class="no">04</span>Code</div>
-      <h2>Replication <span class="it">material</span></h2>
-      <p>Everything in the thesis can be reproduced from public data with two commands.</p>
-    </div>
-    <div class="repo rv">
-      <div class="rn">cash-and-transmission</div>
-      <p>Structural VARs for thirteen euro-area economies, the pooled cross-country interaction with each country's cash share, and the robustness set. Reads policy surprises from the Euro Area Monetary Policy Database and pulls the macro series at runtime, so nothing restricted is redistributed.</p>
-      <div class="rmeta">
-        <span>Julia</span>
-        <span>MIT licence</span>
-        <span>DOI pending release</span>
-      </div>
-      <div class="filerow">
-        <span class="soon">View on GitHub</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="background">
-  <div class="wrap">
-    <div class="shead rv">
-      <div class="k"><span class="no">05</span>Background</div>
-      <h2>Where the training comes <span class="it">from</span></h2>
-    </div>
-
-    <div class="bg-grid rv">
-      <div class="bg-k">Education</div>
-      <div class="bg-v">
-        <div class="item2">
-          <div class="t">BSc Econometrics and Operations Research</div>
-          <div class="s">Maastricht University, School of Business and Economics · final year</div>
-        </div>
-        <div class="item2">
-          <div class="t">Exchange semester</div>
-          <div class="s">Università degli Studi di Roma Tor Vergata · completed February 2026</div>
-        </div>
-      </div>
-
-      <div class="bg-k">Experience</div>
-      <div class="bg-v">
-        <div class="item2">
-          <div class="t">Venture Analyst Intern, Strategy &amp; Analytics</div>
-          <div class="s">Goatstarter Ventures, Amsterdam · 2026. Built a scoring model in Python to assess accelerator applicants, analysed past cohorts for the characteristics that predicted success, and modelled programme unit economics. The useful part was turning it into a rubric a non-technical team could apply.</div>
-        </div>
-        <div class="item2">
-          <div class="t">Chair, Lustrum Committee</div>
-          <div class="s">Vectum, study association for Econometrics and Operations Research · 2024–2025. Led a team of six delivering a gala evening and an alumni networking event, owning budget, logistics and stakeholder communication.</div>
-        </div>
-      </div>
-
-      <div class="bg-k">Methods</div>
-      <div class="bg-v">
-        <div class="item2">
-          <div class="t">Python, R, Stata, Julia, Java, LaTeX</div>
-          <div class="s">Structural VARs and high-frequency identification, time series, regression and classification, optimisation, mathematical statistics</div>
-        </div>
-      </div>
-
-      <div class="bg-k">Languages</div>
-      <div class="bg-v">
-        <div class="item2">
-          <div class="t">Albanian (native) · English C1 · French B2 · Turkish B1</div>
-          <div class="s">Italian and Greek at basic level. Greek national and EU citizen, so no administrative barriers to working anywhere in the Union.</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="contact">
-  <div class="wrap">
-    <div class="contact rv">
-      <div class="k" style="font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--brand2);margin-bottom:9px">Contact</div>
-      <h2>Looking for a research internship from early <span class="it">2027</span></h2>
-      <p>Preferably in European economic policy, in Brussels or the Netherlands. If you have something that involves data and a policy question, I would like to hear about it.</p>
-      <div class="cta">
         <a href="mailto:evlogjia@gmail.com">evlogjia@gmail.com</a>
-        <a href="cv.pdf">Curriculum vitae</a>
         <a href="https://www.linkedin.com/in/evlogjia-stefanidhi-8aab45270">LinkedIn</a>
+        <a href="https://github.com/evlogjiastefanidhi">GitHub</a>
+      </div>
+      <div class="chips" style="margin-top:26px">
+        Python · R · Stata · Julia · LaTeX<br>
+        Greek national, EU citizen · Maastricht, Netherlands
+      </div>
+    </div>
+    <figure class="portrait">
+      <img src="photo.png" alt="Evlogjia Stefanidhi">
+      <figcaption class="cap">Albanian, Greek passport, a semester in Rome, and six
+      languages that mostly happened by accident.</figcaption>
+    </figure>
+  </div>
+</div></header>
+
+<section id="about"><div class="wrap">
+  <div class="shead">About</div>
+  <div class="about rv">
+    <div>
+      <p class="pull">One rule, applied in twenty-seven countries, does not produce
+      twenty-seven identical results.</p>
+      <p>That is the idea most of my work comes back to, and it is not an abstract one for
+      me. I grew up between languages and countries, so the gap between a policy as written
+      and a policy as experienced was visible long before I could measure it.</p>
+    </div>
+    <div>
+      <p>My thesis measured exactly that: whether European Central Bank policy reaches
+      cash-intensive economies less forcefully than others, across thirteen member states.
+      It was graded 9.0 out of 10.</p>
+      <p>Since then I have been doing applied analytics at an early-stage investment
+      programme, where the same question appears in a different form: what predicts whether
+      someone actually succeeds, and how do you make a decision defensible rather than
+      instinctive.</p>
+    </div>
+  </div>
+</div></section>
+
+<section id="experience"><div class="wrap">
+  <div class="shead">Experience</div>
+  <div class="rv">
+    <div class="entry">
+      <div class="top"><div>
+        <div class="role">Analyst Intern, Strategy &amp; Analytics</div>
+        <div class="org">Goatstarter Ventures B.V., Amsterdam</div>
+      </div><div class="when">May 2026 &ndash; present</div></div>
+      <ul>
+        <li>Built an <b>applicant scoring model in Python</b> that replaced a subjective
+        review process, turning a qualitative decision into a ranked, auditable one</li>
+        <li>Modelled <b>time to a founder's first paying customer</b> using survival
+        analysis, since most outcomes are censored: many participants have not succeeded
+        yet rather than failed</li>
+        <li>Derived a seven-criterion scorecard from the fitted model and validated it out
+        of sample, then audited it for disparate impact on characteristics it never sees</li>
+        <li>Presented findings to the people making the funding decisions, and defended the
+        model's assumptions</li>
+      </ul>
+    </div>
+    <div class="entry">
+      <div class="top"><div>
+        <div class="role">Chair, Lustrum Committee</div>
+        <div class="org">Vectum, study association for Econometrics &amp; Operations
+        Research, Maastricht University</div>
+      </div><div class="when">Sep 2024 &ndash; Mar 2025</div></div>
+      <ul>
+        <li>Led a <b>team of six</b> to deliver the association's anniversary programme,
+        including a gala evening and an alumni networking event</li>
+        <li>Owned <b>budget, logistics and stakeholder communication</b> end to end, across
+        students, alumni, university staff and external venues</li>
+      </ul>
+    </div>
+  </div>
+</div></section>
+
+<section id="education"><div class="wrap">
+  <div class="shead">Education</div>
+  <div class="rv">
+    <div class="entry">
+      <div class="top"><div>
+        <div class="role">BSc Econometrics and Operations Research</div>
+        <div class="org">Maastricht University, School of Business and Economics</div>
+      </div><div class="when">Final year</div></div>
+      <ul>
+        <li>Econometric Methods I &amp; II · Macroeconomics and Finance · Mathematical
+        Statistics · Probability Theory · Optimization · Operations Research · Market
+        Design · Institutional Economics</li>
+      </ul>
+    </div>
+    <div class="entry">
+      <div class="top"><div>
+        <div class="role">Semester abroad</div>
+        <div class="org">Universit&agrave; di Roma Tor Vergata</div>
+      </div><div class="when">Completed Feb 2026</div></div>
+    </div>
+  </div>
+</div></section>
+
+<section id="research"><div class="wrap">
+  <div class="shead">Research and projects</div>
+
+  <div class="feature rv">
+    <h3>Does monetary policy work less well where people pay in <span class="it">cash</span>?</h3>
+    <div class="metaline">Bachelor's thesis · supervised by Enrico Wegner · June 2026 ·
+      <span class="grade">graded 9.0/10</span></div>
+    <p>Most channels through which interest rates reach the real economy run through bank
+    balance sheets. Cash payments do not. So policy should transmit more weakly where cash
+    is still dominant, and cash use varies enormously across the euro area: 22% of
+    point-of-sale transactions in the Netherlands against 62% in Austria.</p>
+    <p>I estimated structural VARs for thirteen euro-area economies, identified with
+    high-frequency interest rate surprises, then pooled the impulse responses in a
+    cross-country regression interacted with each country's cash share, clustering by
+    country. The attenuation appears where the mechanism predicts, at the horizons where
+    output troughs, and it survives dropping any single country.</p>
+    <figure class="figwrap rv">
+      <img src="fig-cash-interaction.png" alt="Horizon-varying cash interaction">
+      <figcaption class="cap">Effect of a one-percentage-point higher cash share on the GDP
+      response to a contractionary surprise, by horizon, with 90% bands. It rises into the
+      trough and fades after quarter six.</figcaption>
+    </figure>
+    <div class="filerow">
+      <a href="thesis.pdf">Read the thesis</a>
+      <a href="https://github.com/evlogjiastefanidhi/cash-and-transmission">Figures and
+      replication material</a>
+    </div>
+  </div>
+
+  <div class="cards2 rv">
+    <div class="card">
+      <h4>Selecting founders under censored outcomes</h4>
+      <p>Survival model of time to a first paying customer, reduced to a scorecard usable
+      during a call. Out-of-sample concordance 0.60, with a fairness audit on age and
+      gender.</p>
+      <div class="chips">Python · lifelines · Cox proportional hazards</div>
+    </div>
+    <div class="card">
+      <h4>Policy impact assessment</h4>
+      <p>Assessed the economic impact of selected public policies using applied econometric
+      methods, and wrote the results up for a non-specialist reader.</p>
+      <div class="chips">Stata</div>
+    </div>
+    <div class="card">
+      <h4>Forecasting and optimisation for an industrial firm</h4>
+      <p>Applied forecasting and optimisation methods to the operations of SABIC, working
+      from the firm's own data to a recommendation, in a team, to a deadline.</p>
+      <div class="chips">Julia · Java</div>
+    </div>
+    <div class="card">
+      <h4>Long-run temperature trends in the Netherlands</h4>
+      <p>Built and validated a time-series model of Dutch climate trends, with model
+      selection and diagnostic testing.</p>
+      <div class="chips">R</div>
+    </div>
+  </div>
+</div></section>
+
+<section id="writing"><div class="wrap">
+  <div class="shead">Writing</div>
+  <div class="cards2 rv">
+    <div class="card">
+      <h4>The digital euro and the reach of monetary policy</h4>
+      <p>Two pages on what my thesis implies for a central bank digital currency: if
+      transmission weakens where payments bypass banks, a digital euro is a monetary policy
+      instrument and not only a sovereignty one.</p>
+      <div class="filerow" style="margin-top:20px;padding-top:16px">
+        <a href="brief-digital-euro.pdf">Read the brief</a></div>
+    </div>
+    <div class="card">
+      <h4>Greece, the country that moves the wrong way</h4>
+      <p>Of the thirteen economies in my sample, Greece is the one whose output response
+      has the opposite sign. Two pages on why, and on what it means for reading
+      cross-country averages.</p>
+      <div class="filerow" style="margin-top:20px;padding-top:16px">
+        <a href="brief-greece.pdf">Read the brief</a></div>
+    </div>
+  </div>
+</div></section>
+
+<section id="skills"><div class="wrap">
+  <div class="shead">Skills and languages</div>
+  <div class="skillgrid rv">
+    <div>
+      <h4>Programming</h4>
+      <p>Python, R and Stata daily. Julia for the thesis estimation. Java, LaTeX, Git.</p>
+    </div>
+    <div>
+      <h4>Methods</h4>
+      <p>Econometric modelling, time series and structural VARs, survival analysis,
+      regression and classification, forecasting, optimisation, mathematical statistics.</p>
+    </div>
+    <div>
+      <h4>Data</h4>
+      <p>Building cross-country panels from institutional sources, including ECB and
+      Eurostat APIs.</p>
+    </div>
+    <div>
+      <h4>Languages</h4>
+      <div class="langs">
+        <div>Albanian <span>Native</span></div>
+        <div>English <span>C1</span></div>
+        <div>French <span>B2</span></div>
+        <div>Turkish <span>B1</span></div>
+        <div>Italian <span>Basic professional</span></div>
+        <div>Greek <span>Basic</span></div>
       </div>
     </div>
   </div>
-</section>
+</div></section>
 
-<div class="wrap sig"><span>Evlogjia Stefanidhi</span></div>
-
-<footer>
-  <div class="wrap">
-    <div>Maastricht, Netherlands</div>
-    <div>© 2026 Evlogjia Stefanidhi</div>
+<section id="contact"><div class="wrap">
+  <div class="shead">Contact</div>
+  <div class="contact rv">
+    <h3>Looking for a research internship in European economic policy from early
+    <span class="it">2027</span></h3>
+    <p>Brussels, Maastricht or remote. Quantitative work on policy questions, in an
+    institution where the results are meant to be used.</p>
+    <div class="filerow">
+      <a href="mailto:evlogjia@gmail.com">evlogjia@gmail.com</a>
+      <a href="cv.pdf">Curriculum vitae</a>
+      <a href="https://www.linkedin.com/in/evlogjia-stefanidhi-8aab45270">LinkedIn</a>
+      <a href="https://github.com/evlogjiastefanidhi">GitHub</a>
+    </div>
   </div>
-</footer>
-
-<div class="wrap">
-  <div class="editnote">
-    <b>Delete this box before publishing.</b> Two links are placeholders and currently do nothing: the SSRN working paper and the data-and-code repo. Either point them somewhere real or remove them, since a dead link is worse than no link. Consider trimming the Statement of Originality and the AI declaration out of <code>thesis.pdf</code> before putting it online. And rewrite the opening paragraph in your own voice: it is the first thing anyone reads and right now it sounds like a summary of you rather than you.
-  </div>
-</div>
+</div></section>
 
 <script>
+const root=document.documentElement, b=document.getElementById('tbtn');
+const saved=localStorage.getItem('theme'); if(saved) root.dataset.theme=saved;
+b.addEventListener('click',()=>{
+  root.dataset.theme = root.dataset.theme==='light' ? '' : 'light';
+  localStorage.setItem('theme', root.dataset.theme);
+});
 const io=new IntersectionObserver(es=>es.forEach(e=>{
   if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}
-}),{threshold:.12,rootMargin:'0px 0px -8% 0px'});
+}),{threshold:.12});
 document.querySelectorAll('.rv').forEach(el=>io.observe(el));
-
-const b=document.getElementById('tt');
-b.addEventListener('click',()=>{
-  const cur=document.documentElement.getAttribute('data-theme');
-  const dark = cur ? cur==='dark' : matchMedia('(prefers-color-scheme: dark)').matches;
-  document.documentElement.setAttribute('data-theme', dark?'light':'dark');
-});
 </script>
 </body>
 </html>
